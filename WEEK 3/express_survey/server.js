@@ -31,13 +31,13 @@ app.get('/', function(request, response) {
 app.post('/result', function(req, res) {
     console.log("POST DATA \n\n", req.body)
 
-    var user = {
+    var user_info = {
         name: req.body.name,
         dojo_location: req.body.dojo_location,
         fav_language: req.body.fav_language,
         comment: req.body.comment,
     }
-    res.render('result', user);
+    res.render('result', {user: user_info});
 });
 
 
