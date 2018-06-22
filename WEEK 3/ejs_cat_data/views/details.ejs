@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title><%= cat['name'] %></title>
+        <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/style.css" />
+    </head>
+<body>
+    <h1>Details Page for <%= cat['name'] %></h1>
+    <img src="<%= cat['url'] %>" alt="<%= cat['name'] %>">
+    <div class="food">
+        Favorite Food: <%= cat['food'] %>
+    </div>
+    <div class="age">
+        Age: <%= cat['age'] %>
+    </div>
+    <div class="sleep">
+        Sleeping spots: 
+        <ul>
+            <% for (var spots in cat['sleeping_spots']) { %>
+                <li><%= cat['sleeping_spots'][spots] %></li>
+            <% } %>
+        </ul>
+    </div>
+</body>
+</html>

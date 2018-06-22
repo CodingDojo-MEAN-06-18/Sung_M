@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Counter</title>
+        <link rel='stylesheet' type='text/css' href="/stylesheets/style.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="counter">
+                <h1>Counter</h1>
+                <p><%= counter %> times</p>
+                <form action="/plustwo">
+                    <input type='submit' value='Add +2'>
+                </form>
+                <form action='/reset'>
+                    <input type='submit' value='Reset'>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

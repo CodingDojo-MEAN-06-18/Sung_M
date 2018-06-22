@@ -1,0 +1,26 @@
+* {
+    width: 970px;
+    margin: 0px auto;
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 50px;
+    text-align: center;
+}
+
+a {
+    color: yellow;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+img {
+    width: 300px;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}

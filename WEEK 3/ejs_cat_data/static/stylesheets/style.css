@@ -1,0 +1,63 @@
+* {
+    width: 970px;
+    margin: 0px auto;
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 50px;
+    text-align: center;
+}
+
+a {
+    color: yellow;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+img {
+    width: 300px;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.food {
+    width: 300px;
+    text-align: left;
+    display: block;
+    background-color: #ce93d9;
+    margin-bottom: 10px;
+}
+
+.age {
+    width: 300px;
+    text-align: left;
+    display: block;
+    background-color: #ba66c8;
+    margin-bottom: 10px;
+}
+
+.sleep {
+    width: 300px;
+    text-align: left;
+    background-color: #9b28b0;
+}
+
+.sleep ul {
+    width: 250px;
+    text-align: left;
+    list-style: none;
+    background-color: #9b28b0;
+}
+
+.sleep li {
+    width: 250px;
+    text-align: left;
+    list-style: none;
+    background-color: #9b28b0;
+    margin-bottom: 5px;
+}

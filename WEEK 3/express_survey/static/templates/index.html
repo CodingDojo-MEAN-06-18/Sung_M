@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Dojo Survey Index</title>
+        <link rel='stylesheet' type='text/css' href="stylesheets/style.css">
+    </head>
+    <body>
+        <div id='wrapper'>
+            <div id='form'>
+                <form action='/result' method='post'>
+                    Your Name: <input type='text' name='name' id='form1'>
+                    <br>
+                    Dojo Location: <select name='dojo_location' id='form1'>
+                        <option value='Silicon Valley'>Silicon Valley</option>
+                        <option value='Seattle'>Seattle</option>
+                        <option value='Los Angeles'>Los Angeles</option>
+                        <option value='Online'>Online</option>
+                    </select>
+                    <br>
+                    Favorite Language: <select name='fav_language' id='form1'>
+                        <option value='Ruby'>Ruby on Rails</option>
+                        <option value='Python'>Python</option>
+                        <option value='Java'>Java</option>
+                        <option value='Mean'>Mean</option>
+                    </select>
+                    <br>
+                    Comment (optional):
+                    <br>
+                    <textarea rows='4' cols='50' name='comment' id='form1'></textarea>
+                    <br>
+                    <input type='submit' value='Submit' id='form1'>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </body>
+    
+</html>
