@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>The Great Button Game</title>
+        <link rel='stylesheet' type='text/css' href="stylesheets/style.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type ="text/javascript">
+            $(document).ready(function () {
+                var socket = io();
+                $('#button').click(function() {
+                    socket.emit('button_pressed')
+                });
+
+                // reset
+                $('#reset').click(function() {
+                    socket.emit('reset')
+                });
+                socket.on('update_message', function(number) {
+                    $('#number').html(number);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id='wrapper'>
+            <h1>The button has been pushed <span id='number'></span> time(s)</h1>
+            <h4>Push the button to update the count!</h4>
+            <button id='button'>Push the epic button</button>
+            <button id='reset'>Reset count</button>
+        </div>
+    </body>
+    
+</html>

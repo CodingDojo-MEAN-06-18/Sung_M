@@ -1,0 +1,16 @@
+#wrapper {
+    width: 970px;
+    height: 1000px;;
+    margin: auto;
+}
+
+#button {
+    text-align: center;
+    margin-top: 480px;
+}
+
+#green_button, #blue_button, #pink_button {
+    width: 150px;
+    height:50px;
+    border-radius: 10px;
+}

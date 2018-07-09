@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey Form</title>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+        	// triggers the connection event in our server!
+            var socket = io.connect();
+            // submit data to the server using emit
+            $('#survey_form').submit(function(e) {
+        		e.preventDefault();
+				socket.emit("post_form", {
+				  	name: $('#name').val(),
+                    location: $('#location').val(),
+                    language: $('#language').val(),
+                    comment: $('#comment').val()
+                });
+			});
+        	//display the emit response of the server called "updated_message" and "random_number"
+			socket.on('updated_message', function (data){
+			    $('#message').html("You emitted the following information to the server: " + JSON.stringify(data.response));
+			});
+			socket.on('random_number', function (data){
+			   $('#number').html("Your lucky number emitted by the server is : " + JSON.stringify(data.response));
+			});
+        });
+    </script>
+
+</head>
+<body>
+	<div id="message"></div>
+	<div id="number"></div>
+	
+
+
+
+
+	<h1>Static Content Form</h1>
+
+	<form action="" id="survey_form">
+		Your name:
+ 		<input type="text" name="name" id="name" ><br>
+
+  		Dojo Location:
+  		<select name="location" id="location">
+  			<option value="Mountain">Mountain</option>
+		  	<option value="Ny">Ny</option>
+		  	<option value="SF">SF</option>
+		  	<option value="Portland">Portland</option>
+		</select> <br>
+
+		Favorite Language:
+  		<select name="language" id="language">
+  			<option value="js">javascript</option>
+		  	<option value="python">python</option>
+		  	<option value="java">java</option>
+		</select> <br>
+		Comment (optional): <br>
+		<textarea name="comment" id="comment" rows="10" cols="30"> </textarea> <br>
+  		<input type="submit" value="Submit">
+	</form> <br>
+
+	
+
+</body>
+</html>
