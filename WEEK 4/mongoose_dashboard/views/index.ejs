@@ -1,0 +1,15 @@
+<html>
+    <head><title>Index</title></head>
+    <body>
+        <h1>Index Page!</h1>
+        <a href="/new">Create new Shiba</a>
+        <% for (const shiba in shibas) { %>
+            <p>Name: <a href="/<%= shiba.id %>"><%= shiba.name %></a>
+            <a href="/<%= shiba._id %>/edit/"><button>Edit Shiba</button></a>
+            <form action="/<%= shiba._id %>/delete/" method='post'>
+                <input type="submit" value="Delete">
+            </form>
+            </p>
+        <% } %>
+    </body>
+</html>

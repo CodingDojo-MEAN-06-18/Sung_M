@@ -1,0 +1,21 @@
+<http>
+    <head>
+        <title>Quoting Dojo</title>
+        <link rel="stylesheet" href="stylesheets/style.css">
+    </head>
+    <body>
+    <h1>Welcome to the Quoting Dojo</h1>
+    <% JSON.stringify(messages) %>
+        <% if (messages.required){ %>
+            <% for(var x of messages.required){ %>
+                <h3><%= x %></h3>
+            <% } %>
+        <% } %>
+    <form action="/quotes" method="post">
+        Your name: <input type="text" name=name>
+        Your quote: <textarea name="quote" rows=5 cols=22></textarea>
+        <button input type="submit">Add my quote</button>
+        <a href="/quotes">Skip to quotes</a>
+    </form>
+    </body>
+</http>

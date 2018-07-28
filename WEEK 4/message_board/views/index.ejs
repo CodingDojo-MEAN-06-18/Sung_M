@@ -1,0 +1,58 @@
+
+<html>
+    <head>
+        <title>Message Board</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <div id=wrapper>
+        <h1>Message Board</h1>
+            <div id="error"> 
+                <% if(messages.messages) { %>
+                    <% for (let message of messages.messages) { %>
+                    <h2><%= message %></h2>
+                    <% } %>
+                <% } %>
+                <% if(messages.comments) { %>
+                    <% for (let message of messages.comments) { %>
+                    <h3><%= message %></h3>
+                    <% } %>
+                <% } %>
+            </div>
+            <ul>
+                <% if (messages.length) { %>    
+                    <% for (let message of messages) { %>
+                    <li class="message">
+                        <p>Name: <%= message.name %></p>
+                        <p>Message: <%= message.content %></p>
+                        <% if (message.comments.length) { %>
+                        <ul>
+                            <% for (let comment of message.comments) { %>
+                            <li class="comment">
+                                <p>Name: <%= comment.name %></p>
+                                <p>Message: <%= comment.content %></p>
+                            </li>
+                            <% } %>
+                        </ul>
+                        <% } %>
+                        <form action="/messages/<%= message.id %>/new_comments" method="post">
+                            <label for="name">Name: </label>
+                            <input type="text" name="name">
+                            <label for="content">Comment: </label>
+                            <input type="text" name="content">
+                            <input type="submit" value="Post Comment">
+                        </form>
+                    </li>
+                    <% } %>
+                <% } %>
+            </ul>
+            <form action="/new_messages" method="post">
+                <label for="name">Name: </label>
+                <input type="text" name="name">
+                <label for="content">Message: </label>
+                <input type="text" name="content">
+                <input type="submit" value="Post Message">
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+    <head><title>Edit</title></head>
+    <body>
+        <h1>Edit #<%= shiba.name %>!</h1>
+        <form action="/<%= shiba.id %>" method='post'>
+            Name: <input type="text" name="name" value="<%= shiba.name %>">
+            Weight: <input type="text" name="weight" value="<%= shiba.weight %>"> 
+            Color: <input type="text" name="color" value="<%= shiba.color %>">
+            <input type="submit" value="Edit Shiba!">
+        </form>
+        <a href="/">Home</a>
+    </body>
+</html>
