@@ -1,0 +1,135 @@
+<h1>{{title}}</h1>
+  <div class='wrapper'>
+    <div class='success' *ngIf="formData.submitted && users[0]">
+    <p>Thank you for registering with us {{ users[users.length - 1].firstName }}! We just sent you a confirmation email at: {{ users[users.length - 1].email }}, and we will send all mail to {{ users[users.length - 1].street }} {{ users[users.length - 1].apt}}, {{ users[users.length - 1].city }}, {{ users[users.length - 1].state }}.</p>
+    <p>Have a wonderful day!</p>
+    </div>
+    <h2>Account Information</h2>
+    <form (submit)="onSubmit($event, formData)" #formData="ngForm">
+      *First Name <input 
+        type="text" 
+        name="firstName" 
+        required 
+        minlength="2" 
+        maxlength="24"
+        [(ngModel)]="user.firstName"
+        #firstName="ngModel"
+      />
+      <p *ngIf="firstName.errors" class="errorMessage">
+        <span *ngIf="firstName.errors.touched">First name is required</span>
+        <span *ngIf="firstName.errors.minlength && !firstName.errors.touched">First name must be at least 2 letters.</span>
+      </p>
+
+      *Last Name<input 
+        type="text" 
+        name="lastName" 
+        required 
+        minlength="4" 
+        maxlength="24"
+        [(ngModel)]="user.lastName"
+        #lastName="ngModel"
+      />
+      <p *ngIf="lastName.errors" class="errorMessage">
+        <span *ngIf="lastName.errors.touched">Last name is required</span>
+        <span *ngIf="lastName.errors.minlength && !lastName.errors.touched">Last name must be at least 2 letters.</span>
+      </p>
+
+      *Email<input 
+          type="text"
+          name="email"
+          required 
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          [(ngModel)]="user.email"
+          #email="ngModel"
+        /> 
+      <p *ngIf="email.errors" class="errorMessage">
+        <span *ngIf="email.errors.touched">Email is required</span>
+        <span *ngIf="email.errors.pattern && !email.errors.touched">Email must be valid</span>
+      </p>
+      
+      *Password<input 
+        type="password" 
+        name="password" 
+        required
+        pattern="^([a-zA-Z0-9@*#]{8,15})$"
+        [(ngModel)]="user.password"
+        #password="ngModel"
+      />
+      <p *ngIf="password.errors" class="errorMessage">
+        <span *ngIf="password.errors.touched">Password is required</span>
+        <span *ngIf="password.errors.pattern && !password.errors.touched">Password must be valid</span>
+      </p>
+      
+      *Password Confirmation<input 
+        type="password" 
+        name="password_confirmation" 
+        required
+        pattern="^([a-zA-Z0-9@*#]{8,15})$"
+        [(ngModel)]="user.password_confirmation"
+        #passwordConfirmation="ngModel"
+      />
+      <p *ngIf="passwordConfirmation.errors" class="errorMessage">
+        <span *ngIf="passwordConfirmation.errors.touched">Confirm password</span>
+        <span *ngIf="user.password_confirmation !== user.password.touched && !passwordConfirmation.errors.touched">Passwords must match</span>
+      </p>
+
+      *Street Address<input 
+        type="text" 
+        name="address" 
+        required 
+        minlength="5" 
+        maxlength="24"
+        [(ngModel)]="user.address"
+        #address="ngModel"
+      />
+      <p *ngIf="address.errors" class="errorMessage">
+        <span *ngIf="address.errors.touched">Address is required</span>
+        <span *ngIf="address.errors.minlength && !address.errors.touched">Address must be at least 5 characters.</span>
+      </p>
+
+      Unit/Apt #
+      <input 
+        type="text" 
+        name="unit" 
+        [(ngModel)]="user.unit"
+        #unit="ngModel"
+      />
+    
+      *City
+      <input 
+        type="text" 
+        name="city" 
+        required 
+        minlength="3" 
+        maxlength="24"
+        [(ngModel)]="user.city"
+        #city="ngModel"
+      />
+      <p *ngIf="city.errors" class="errorMessage">
+        <span *ngIf="city.errors.touched">City is required</span>
+        <span *ngIf="city.errors.minlength && !city.errors.touched">First name must be at least 2 letters.</span>
+      </p>
+      
+      *State
+      <select name="state" required [(ngModel)]="user.state" #state="ngModel">
+        <option *ngFor="let state of states" value="{{state}}">{{state}}</option>
+      </select>
+      
+      <div class='radio'>
+        *I'm feeling lucky
+        Yes <input 
+          type="radio" 
+          name="lucky" 
+          value="Yes" 
+          checked
+        />
+        No <input 
+          type="radio" 
+          name="lucky" 
+          value="No" 
+        />
+      </div>
+
+      <input type="submit" value="Register" [disabled]="!formData.valid">
+    </form>
+</div>

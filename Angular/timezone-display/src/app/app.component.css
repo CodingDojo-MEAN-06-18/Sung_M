@@ -1,0 +1,23 @@
+div.header {
+    height: 100px;
+    text-align: center;
+}
+section {
+    height: 100px;
+    text-align: center;
+}
+button {
+    width: 100px;
+    height: 50px;
+    margin-left: 75px;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px black;
+}
+.selected {
+    background-color: yellow;
+}
+
+.clear { 
+    visibility: hidden;
+}

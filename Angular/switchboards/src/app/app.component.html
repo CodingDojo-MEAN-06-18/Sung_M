@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <h1>{{ title }}</h1>
+  <div class="row">
+    <div class="switch" *ngFor="let switch of switches; let idx = index">
+      <button *ngIf="switch" [ngClass]="{'on': switch}" (click)="flipSwitch(idx)">ON</button>
+      <button *ngIf="!switch" (click)="flipSwitch(idx)">OFF</button>
+    </div>
+  </div>
+</div>
