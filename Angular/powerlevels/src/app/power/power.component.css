@@ -1,0 +1,45 @@
+header div {
+    padding: 30px;
+    min-height: 150px;
+}
+
+header div.header-left {
+    width: 600px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+header div.header-left span,
+header div.header-left button,
+header div.header-left input {
+    font-size: 2em;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+header div.header-left input {
+    font-size: 1.5em;
+    width: 80px;
+}
+
+img {
+    vertical-align: top;
+    display: inline-block;
+    width: 300px;
+}
+
+div.body{
+    text-align: center;
+}
+
+.card {
+    background-color: rgb(238, 238, 97);
+    text-align: left;
+    width: 275px;
+    height: 125px;
+    border: 1px solid black;
+    display: inline-block;
+    margin: 15px;
+    padding-left: 15px;
+    vertical-align: top;
+}
